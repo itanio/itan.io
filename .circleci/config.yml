@@ -18,7 +18,7 @@ jobs:
             shopt -s extglob dotglob
             cp -r !(workspace) workspace
             shopt -u dotglob
-      -run:
+      - run:
           name: Cleanup unneeded directories in workspace
           command: |
             cd workspace
