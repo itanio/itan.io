@@ -1,6 +1,6 @@
-# itan.io
+# itan.io [![CircleCI](https://circleci.com/gh/itanio/itan.io/tree/master.svg?style=svg)](https://circleci.com/gh/itanio/itan.io/tree/master)
 
-==================
+---
 
 ## About the Site
 
