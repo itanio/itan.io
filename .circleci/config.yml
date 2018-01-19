@@ -1,0 +1,10 @@
+version: 2
+test:  
+  override:
+    - "true"
+    
+deployment:
+  production:
+    branch: master
+    commands:
+      - scp -r * itanio@itan.io:/home/itanio/itan.io/  
