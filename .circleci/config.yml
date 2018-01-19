@@ -22,7 +22,11 @@ jobs:
       - deploy:
           name: Deploy if tests pass and branch is Master
           command: |
-            echo 'itan.io ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjxhmapjerbN9NNKujykJJcBIoY++lVueeaxNDMIllnf/NdRIFMnISwe1KbUrbttpRGIO92aMAb7/YJswlJdlW2beufnQcTX4h7cLKQucZfCtkl8cDXk4/BU/oJRZjxIgnciAJu5OocRVJw4Xf1fe9K2hL3q5HzTm1m6y+9pPi4wFYvwHQhZySBAIoLBj9hEbxq7Z4vv1EiKc5dNrn0Xvgb3eJoeNgnSv5+m7smJLE/oAgXnEaO2EsqeqtD14zSIXoqP7CuyXqLk5xv6Zj98neTl6rZUX5j0icQPwLWKODVjetRYyglr4rpBafPkwLGAdboqw1y936kBi3bnL4y9Sj itanio@james-wilson' >> ~/.ssh/known_hosts
+            echo 'james-wilson.dreamhost.com,173.236.224.112 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA99hNHxia3k5JNudNM4AlH3ajpiLzlMVQIBT2C/d8a6U74DlnyBk+REYgn21qn5n564Xwjreth3jMNm7GAbSqKWq7Xu+YfaKkZROHFPGyjdyev/akkY0hZm0wj5f5pPXxEDVJ7HNBtVZNpfFGKmO2U60gZkck0znrILYlrfWgtPbcCx3Xkjs1XAtiqPLE8NU0Igm/qy0+6wXUXXrF7PRjwnfDowuPJoeBYGLaGQ+5vtYgu4zXeVA+Voxp3TeCKop2AAvkylUSZF64ImF9rNyxM9btPZ7lPKE+NPjynykYwAR8XGZPOWNZKNkYJpi1R49hvsA5UytOYdv709uQvY1h 
+james-wilson.dreamhost.com,173.236.224.112 ssh-dss AAAAB3NzaC1kc3MAAACBAKcbA6UsZ5z+XvFlcdlymDiUzhOZpJLAcynlCyod8L1AcklDEgg+i6asqv5UBdm9KBiZlWMVSY+Y6C4pySbrPRiXLDEvmMJpqpTEt93DY5CgRnV87zx4XTPlN96MI6kw90ZnL7PaaTz4C0ij2VFnNxwF5e51fTofBkH875JemyYxAAAAFQDVc/Q+e2JUnFV/Tui6J2lL82GwBQAAAIBIXQvTxYyRHi/JpVu1jhny7yIJPo+lziS3ZBah+2QdHRKTQ3U5EUINxynZfEPNp15PYs3actRJ+s1Vn/UbCKyLsY/qdy7xS9Gqp8+3rLsaxdwcLTtZgQUc02mw40Pic1YBgPBY3Ex0LR6IvETPHEpRWUc1PAUg39j9fiKcL5/2/AAAAIBoHsL8bZ1X/aeeRw2MNFsKM7PfvlVk9IDEiILbbNy1V/auDNiTdGtdjnPCs5CVrbgqhfDwSYYyJCz4tB0VrDBcyzOFr/UYAiTSJylU+pbQLruddH3o5mLhtR9mf23sm50Jd+KgQO+FgAeC1w01N1M12KMYHnBB35ggAEOu0ZfpBw== 
+james-wilson.dreamhost.com,173.236.224.112 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMPIhkdqLVxknkAOFiNjGrtKeqyUcqunHRLNwkjuR8f2Y7y8LymGLvM2JZCTf7BxNEXN29etf+2dlkrkbDHiCCw= 
+itan.io ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjxhmapjerbN9NNKujykJJcBIoY++lVueeaxNDMIllnf/NdRIFMnISwe1KbUrbttpRGIO92aMAb7/YJswlJdlW2beufnQcTX4h7cLKQucZfCtkl8cDXk4/BU/oJRZjxIgnciAJu5OocRVJw4Xf1fe9K2hL3q5HzTm1m6y+9pPi4wFYvwHQhZySBAIoLBj9hEbxq7Z4vv1EiKc5dNrn0Xvgb3eJoeNgnSv5+m7smJLE/oAgXnEaO2EsqeqtD14zSIXoqP7CuyXqLk5xv6Zj98neTl6rZUX5j0icQPwLWKODVjetRYyglr4rpBafPkwLGAdboqw1y936kBi3bnL4y9Sj itanio@james-wilson' >> ~/.ssh/known_hosts
+            cat /home/circleci/.ssh/known_hosts
             scp -oStrictHostKeyChecking=no -r ~/project/ itanio@itan.io:/home/itanio/itan.io/
 
 workflows:
