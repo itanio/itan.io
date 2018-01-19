@@ -20,7 +20,7 @@ jobs:
             cp !(workspace) workspace
             shopt -u dotglob
       - persist-to-workspace:
-          root: ~
+          root: /home/circleci/tmp
           paths:
             - workspace
    deploy:
