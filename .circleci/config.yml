@@ -1,10 +1,9 @@
-version: 1
-test:  
-  override:
-    - "true"
-    
-deployment:
-  production:
-    branch: master
-    commands:
-      - scp -r * itanio@itan.io:/home/itanio/itan.io/  
+version: 2
+jobs:
+   build:
+     docker:
+       - image: circleci/php:5.6.30-cli
+     steps:
+       - checkout
+       - run: echo "hello world"
+       
