@@ -1,17 +1,33 @@
+defaults: &defaults
+  working_directory: /tmp
+  docker:
+    - image: circleci/php:5.6.30-cli
+
 version: 2
 jobs:
    build:
-     docker:
-       - image: circleci/php:5.6.30-cli
+     <<: *defaults
      steps:
       - checkout
       - run:
           name: Running Tests
           command: echo "No Tests to Run."
+      - run:
+          name: Copy Built files to workspace
+          command: |
+            mkdir -p workspace
+            shopt -s extglob dotglob
+            cp !(workspace) workspace
+            shopt -u dotglob
+      - persist-to-workspace:
+          root: ~
+          paths:
+            - workspace
    deploy:
-     docker:
-       - image: circleci/php:5.6.30-cli
+     <<: *defaults
      steps:
+      - attach_workspace:
+          at: /tmp
       - add_ssh_keys:
           fingerprints:
            - "41:9e:a5:28:11:2c:9b:8d:36:01:07:11:8c:cf:29:fe"
@@ -20,7 +36,7 @@ jobs:
           command: |
             pwd
             ls
-            cd ~/project
+            cd ~/tmp
             ls
       - deploy:
           name: Deploy if tests pass and branch is Master
@@ -30,7 +46,7 @@ jobs:
             echo 'james-wilson.dreamhost.com,173.236.224.112 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMPIhkdqLVxknkAOFiNjGrtKeqyUcqunHRLNwkjuR8f2Y7y8LymGLvM2JZCTf7BxNEXN29etf+2dlkrkbDHiCCw= ' >> ~/.ssh/known_hosts
             echo 'itan.io ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjxhmapjerbN9NNKujykJJcBIoY++lVueeaxNDMIllnf/NdRIFMnISwe1KbUrbttpRGIO92aMAb7/YJswlJdlW2beufnQcTX4h7cLKQucZfCtkl8cDXk4/BU/oJRZjxIgnciAJu5OocRVJw4Xf1fe9K2hL3q5HzTm1m6y+9pPi4wFYvwHQhZySBAIoLBj9hEbxq7Z4vv1EiKc5dNrn0Xvgb3eJoeNgnSv5+m7smJLE/oAgXnEaO2EsqeqtD14zSIXoqP7CuyXqLk5xv6Zj98neTl6rZUX5j0icQPwLWKODVjetRYyglr4rpBafPkwLGAdboqw1y936kBi3bnL4y9Sj itanio@james-wilson' >> ~/.ssh/known_hosts
             cat /home/circleci/.ssh/known_hosts
-            scp -oStrictHostKeyChecking=no -r ~/project itanio@itan.io:/home/itanio/itan.io
+            scp -oStrictHostKeyChecking=no -r ~/tmp itanio@itan.io:/home/itanio/itan.io
 
 workflows:
   version: 2
