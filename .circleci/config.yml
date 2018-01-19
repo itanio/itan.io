@@ -17,7 +17,9 @@ jobs:
            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
       - run:
           name: Deploy if tests pass and branch is Master
-          command: scp -r * itanio@itan.io:/home/itanio/itan.io/
+          command: |
+            echo 'itan.io ssh-rsa ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjxhmapjerbN9NNKujykJJcBIoY++lVueeaxNDMIllnf/NdRIFMnISwe1KbUrbttpRGIO92aMAb7/YJswlJdlW2beufnQcTX4h7cLKQucZfCtkl8cDXk4/BU/oJRZjxIgnciAJu5OocRVJw4Xf1fe9K2hL3q5HzTm1m6y+9pPi4wFYvwHQhZySBAIoLBj9hEbxq7Z4vv1EiKc5dNrn0Xvgb3eJoeNgnSv5+m7smJLE/oAgXnEaO2EsqeqtD14zSIXoqP7CuyXqLk5xv6Zj98neTl6rZUX5j0icQPwLWKODVjetRYyglr4rpBafPkwLGAdboqw1y936kBi3bnL4y9Sj itanio@james-wilson' >> ~/.ssh/known_hosts
+            scp -oStrictHostKeyChecking=no -r * itanio@itan.io:/home/itanio/itan.io/
 
 workflows:
   version: 2
