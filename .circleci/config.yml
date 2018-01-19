@@ -23,6 +23,7 @@ jobs:
           command: |
             cd workspace
             rm -rf .circleci
+            rm -rf .git
       - persist-to-workspace:
           root: /home/circleci/project
           paths:
