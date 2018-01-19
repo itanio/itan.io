@@ -1,15 +1,15 @@
 version: 2
 jobs:
-   build-job:
+   build:
      docker:
        - image: circleci/php:5.6.30-cli
      steps:
        - checkout
-       - run: 
+       - run:
         name: Running Tests
         command: echo "No Tests to Run."
   
-  deploy-job:
+  deploy:
      docker:
        - image: circleci/php:5.6.30-cli
      steps:
@@ -21,10 +21,10 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build-job
-      - deploy-job:
+      - build
+      - deploy:
           requires:
-            - build-job
+            - build
           filters:
             branches:
               only: master
