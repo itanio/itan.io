@@ -17,7 +17,7 @@ jobs:
            - "41:9e:a5:28:11:2c:9b:8d:36:01:07:11:8c:cf:29:fe"
       - run:
           name: Clearing known_hosts
-          command: sh-keygen -R itan.io
+          command: ssh-keygen -R itan.io
 
       - deploy:
           name: Deploy if tests pass and branch is Master
