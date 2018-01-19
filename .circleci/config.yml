@@ -18,6 +18,11 @@ jobs:
             shopt -s extglob dotglob
             cp -r !(workspace) workspace
             shopt -u dotglob
+      -run:
+          name: Cleanup unneeded directories in workspace
+          command: |
+            cd workspace
+            rm -rf .circleci
       - persist-to-workspace:
           root: /home/circleci/project
           paths:
@@ -43,7 +48,7 @@ jobs:
             echo 'james-wilson.dreamhost.com,173.236.224.112 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMPIhkdqLVxknkAOFiNjGrtKeqyUcqunHRLNwkjuR8f2Y7y8LymGLvM2JZCTf7BxNEXN29etf+2dlkrkbDHiCCw= ' >> ~/.ssh/known_hosts
             echo 'itan.io ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjxhmapjerbN9NNKujykJJcBIoY++lVueeaxNDMIllnf/NdRIFMnISwe1KbUrbttpRGIO92aMAb7/YJswlJdlW2beufnQcTX4h7cLKQucZfCtkl8cDXk4/BU/oJRZjxIgnciAJu5OocRVJw4Xf1fe9K2hL3q5HzTm1m6y+9pPi4wFYvwHQhZySBAIoLBj9hEbxq7Z4vv1EiKc5dNrn0Xvgb3eJoeNgnSv5+m7smJLE/oAgXnEaO2EsqeqtD14zSIXoqP7CuyXqLk5xv6Zj98neTl6rZUX5j0icQPwLWKODVjetRYyglr4rpBafPkwLGAdboqw1y936kBi3bnL4y9Sj itanio@james-wilson' >> ~/.ssh/known_hosts
             cat /home/circleci/.ssh/known_hosts
-            scp -oStrictHostKeyChecking=no -r ~/project/workspace itanio@itan.io:/home/itanio/itan.io
+            scp -oStrictHostKeyChecking=no -r ~/project/workspace/* itanio@itan.io:/home/itanio/itan.io
 
 workflows:
   version: 2
