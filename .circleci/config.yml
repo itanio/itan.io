@@ -13,7 +13,7 @@ jobs:
      docker:
        - image: circleci/php:5.6.30-cli
      steps:
-      -run:
+      - run:
         name: Deploy if tests pass and branch is Master
         command: scp -r * itanio@itan.io:/home/itanio/itan.io/
 
