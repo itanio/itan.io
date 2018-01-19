@@ -4,9 +4,10 @@
   "description": "The itan.io website.",
   "main": "app.js",
   "devDependencies": {
+    "browser-sync": "^2.23.5",
     "gulp": "^3.9.1",
-    "tailwindcss": "^0.4.0",
-    "webpack": "^3.10.0"
+    "gulp-postcss": "^7.0.1",
+    "tailwindcss": "^0.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
