@@ -16,7 +16,7 @@ jobs:
           command: |
             mkdir -p workspace
             shopt -s extglob dotglob
-            cp !(workspace) workspace
+            cp -r !(workspace) workspace
             shopt -u dotglob
       - persist-to-workspace:
           root: /home/circleci/project
