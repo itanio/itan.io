@@ -1,5 +1,4 @@
 defaults: &defaults
-  working_directory: /tmp
   docker:
     - image: circleci/php:5.6.30-cli
 
@@ -20,14 +19,14 @@ jobs:
             cp !(workspace) workspace
             shopt -u dotglob
       - persist-to-workspace:
-          root: /home/circleci/tmp
+          root: /home/circleci/project
           paths:
             - workspace
    deploy:
      <<: *defaults
      steps:
       - attach_workspace:
-          at: /tmp
+          at: /home/circleci/project
       - add_ssh_keys:
           fingerprints:
            - "41:9e:a5:28:11:2c:9b:8d:36:01:07:11:8c:cf:29:fe"
@@ -36,7 +35,7 @@ jobs:
           command: |
             pwd
             ls
-            cd ~/tmp
+            cd ~/project
             ls
       - deploy:
           name: Deploy if tests pass and branch is Master
