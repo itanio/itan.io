@@ -15,7 +15,7 @@ jobs:
       - run: 
           name: Building project with Gulp
           command: |
-            ~/project/node_modules/gulp/bin/gulp.js --gulpfile ~/project/gulpfile.js --cwd ~/project
+            ~/project/node_modules/gulp/bin/gulp.js build --gulpfile ~/project/gulpfile.js --cwd ~/project
       - run:
           name: Running Tests
           command: echo "No Tests to Run."
