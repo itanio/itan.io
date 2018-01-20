@@ -29,7 +29,9 @@
   * @import "components/forms";
   */
 
-html{font-size:32px;}
+html{
+  font-size:32px;
+}
 
  /**
   * This injects all of Tailwind's utility classes, generated based on your
