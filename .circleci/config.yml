@@ -10,7 +10,9 @@ jobs:
       - checkout
       - run: 
           name: Installing Dependencies
-          command: npm install
+          command: |
+            npm install -g gulp
+            npm install
       - run: 
           name: Building project with Gulp
           command: gulp build
