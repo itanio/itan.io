@@ -11,11 +11,11 @@ jobs:
       - run: 
           name: Installing Dependencies
           command: |
-            npm install -g gulp
             npm install
       - run: 
           name: Building project with Gulp
-          command: gulp build
+          command: |
+            ~/project/node_modules/gulp/bin/gulp.js --gulpfile ~/project/gulpfile.js --cwd ~/project
       - run:
           name: Running Tests
           command: echo "No Tests to Run."
