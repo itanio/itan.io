@@ -29,8 +29,21 @@
   * @import "components/forms";
   */
 
-html{
+.rem{
   font-size:32px;
+}
+
+.link-highlight{
+  @apply font-bold text-blue py-px no-underline;
+}
+
+.link-highlight:hover{
+  @apply bg-yellow text-green-dark;
+}
+
+.bare-li{
+  @apply text-grey-dark;
+  list-style:none;
 }
 
  /**
