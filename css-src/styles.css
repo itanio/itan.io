@@ -46,6 +46,11 @@
   list-style:none;
 }
 
+.service-box{
+  @apply bare-li text-grey-darker w-1/5 border-grey-darker border-solid border-2 p-3 m-2 text-center text-xs;
+}
+
+
  /**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
@@ -72,3 +77,11 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
+
+ .tracking-wider{
+  letter-spacing: 0.1em;
+ }
+
+ .tracking-widest{
+  letter-spacing: 0.22em;
+ }
