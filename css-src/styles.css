@@ -47,7 +47,7 @@
 }
 
 .service-box{
-  @apply bare-li text-grey-darker w-1/5 border-grey-darker border-solid border-2 p-3 m-2 text-center text-xs;
+  @apply bare-li text-grey-darker border-grey-darker border-solid border-2 p-3 mb-2 mr-2 text-center text-xs;
 }
 
 
