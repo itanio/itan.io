@@ -30,15 +30,22 @@
   */
 
 .rem{
-  font-size:32px;
+  font-size:24px;
+}
+
+.transition-quick{
+  -moz-transition: all .4s;
+  -o-transition: all .4s;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 .link-highlight{
-  @apply font-bold text-blue py-px no-underline;
+  @apply font-bold text-teal-dark py-px no-underline transition-quick;
 }
 
 .link-highlight:hover{
-  @apply bg-yellow text-green-dark;
+  @apply bg-yellow text-teal-darker;
 }
 
 .bare-li{
@@ -47,7 +54,12 @@
 }
 
 .service-box{
-  @apply bare-li text-grey-darker border-grey-darker border-solid border-2 p-3 mb-2 mr-2 text-center text-xs;
+  @apply bare-li text-grey-darker border-teal-light border-solid border p-3 mb-2 mr-2 relative rounded shadow text-xs transition-quick;
+}
+
+.service-box:hover{
+  @apply shadow-md;
+  bottom: 4px;
 }
 
 
