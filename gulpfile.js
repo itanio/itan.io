@@ -46,7 +46,7 @@ gulp.task('clean:dist'), function(){
     return del.sync('dist');
 }
 
-// Concatenate and optimize JS and CS
+// Concatenate and optimize JS and CSS
 gulp.task('optimize', function() {
     return gulp.src('*.html')
       .pipe(useref())
@@ -54,6 +54,12 @@ gulp.task('optimize', function() {
       .pipe(gulpIf('*.css', cssnano()))
       .pipe(gulp.dest('dist'))
 })
+
+//Move service worker to dist
+gulp.task('sworker', function() {
+    gulp.src('scripts/service-worker.js')
+    .pipe(gulp.dest('dist/scripts'));
+});
 
 // Optimize Images 
 gulp.task('images', function() {
@@ -86,7 +92,7 @@ gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
         'css',
-        ['optimize', 'images', 'favicons'],
+        ['optimize', 'sworker', 'images', 'favicons'],
         callback
     )
   })
