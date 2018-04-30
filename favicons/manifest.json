@@ -1,5 +1,6 @@
 {
- "name": "App",
+ "short_name": "itan.io",
+ "name": "itan.io",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
@@ -37,5 +38,9 @@
    "type": "image\/png",
    "density": "4.0"
   }
- ]
+ ],
+ "start_url":"/?utm_source=homescreen",
+ "background_color": "#f8fafc",
+ "theme_color": "#64d5ca",
+ "display": "standalone"
 }
