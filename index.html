@@ -52,8 +52,16 @@
 </div>
 <!-- begin service worker -->
 <script>
-	if ('serviceWorker' in navigator) {
-	  navigator.serviceWorker.register('/scripts/service-worker.js')
+	if (typeof window !== 'undefined' && 'serviceWorker' in navigator)
+	{
+		navigator.serviceWorker
+		.register('/service-worker.js')
+		.then(function(reg) {
+		console.log('Service worker registered');
+		})
+		.catch(function(e) {
+		console.error('Error during worker registration:', e);
+		});
 	}
 </script>
 <!-- end service worker -->

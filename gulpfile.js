@@ -10,6 +10,8 @@ var runSequence = require('run-sequence');
 var tailwindcss = require('tailwindcss');
 var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
+var swPrecache = require('sw-precache');
+
 
 // Development tasks
 // -----------------
@@ -55,11 +57,17 @@ gulp.task('optimize', function() {
       .pipe(gulp.dest('dist'))
 })
 
-//Move service worker to dist
-gulp.task('sworker', function() {
-    gulp.src('scripts/service-worker.js')
-    .pipe(gulp.dest('dist/scripts'));
-});
+//Create service worker
+gulp.task('generate-service-worker', function(callback) {
+    var rootDir = 'dist';
+  
+    swPrecache.write('dist/service-worker.js', {
+      staticFileGlobs: [
+          rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+      ],
+      stripPrefix: rootDir
+    }, callback);
+  });
 
 // Optimize Images 
 gulp.task('images', function() {
@@ -92,7 +100,8 @@ gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
         'css',
-        ['optimize', 'sworker', 'images', 'favicons'],
+        ['optimize', 'images', 'favicons'],
+        'generate-service-worker',
         callback
     )
   })
