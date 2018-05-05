@@ -79,10 +79,10 @@ gulp.task('images', function() {
       .pipe(gulp.dest('dist/images'))
 })
 
-// Copy favicons
+// Copy favicons and other bits
 gulp.task('favicons', function() {
-    return gulp.src('favicons/**/*')
-      .pipe(gulp.dest('dist/favicons'))
+    return gulp.src('*.{png,ico,svg,webmanifest,xml}')
+    .pipe(gulp.dest('dist'))
 })
 
 // Task Sequences
