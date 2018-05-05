@@ -10,7 +10,7 @@ The site is hosted here: [itan.io](http://itan.io)
 
 ## Licensing
 
-Feel free to inspect the code structure, and reuse what is appropriate. But please respect that the files in the following directories are Copyright Ousama Itani. You may not reuse anything therein without my written permission:
+Feel free to inspect the code structure, and reuse what is appropriate. But please respect that the files in the following directories are Copyright Sam Itani. You may not reuse anything therein without my written permission:
 - images/
 - fonts/ (these fonts are licensed only for my own use)
 
