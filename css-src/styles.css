@@ -41,7 +41,8 @@
 }
 
 .link-highlight{
-  @apply font-bold text-teal-dark py-px no-underline transition-quick;
+  @apply font-bold py-px no-underline transition-quick;
+  color:#357978;
 }
 
 .link-highlight:hover{
@@ -49,7 +50,7 @@
 }
 
 .bare-li{
-  @apply text-grey-dark;
+  @apply text-grey-darker;
   list-style:none;
 }
 
