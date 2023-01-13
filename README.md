@@ -6,7 +6,7 @@
 
 itan.io is a fast, clean personal website where I will house general information, articles, experiences, a project portfolio, etc.
 
-The site is hosted here: [itan.io](http://itan.io)
+The site was previously hosted here: [itan.io](http://itan.io) but has been since unpublished.
 
 ## Licensing
 
